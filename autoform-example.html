@@ -1,0 +1,37 @@
+<head>
+  <title>autoform-example</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> flashMessages}}
+  {{> modalForm}}
+
+{{> list}}
+
+ {{> autoformModals}}
+</body>
+<template name="list">
+
+{{#each books}}
+  <p>{{title}},{{author}}</p>
+{{else}}
+No books!
+{{/each}}
+
+  </template>
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="insertBookForm">
+  {{> quickForm collection="Books" id="insertBookForm" type="insert"}}
+</template>
+
+<template name="modalForm">
+     {{#afModal class="btn btn-primary" collection="Books" operation="insert"}}
+        Add a new book
+        {{/afModal}}
+
+</template>
